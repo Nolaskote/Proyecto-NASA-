@@ -1,0 +1,265 @@
+a {
+	color: #ff0;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+button {
+	cursor: pointer;
+	text-transform: uppercase;
+}
+
+#info {
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+	text-align: center;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	pointer-events: none;
+	z-index: 1; /* TODO Solve this in HTML */
+}
+
+a, button, input, select {
+	pointer-events: auto;
+}
+
+h3 {
+    background: rgba(21, 35, 45, 0.7); /* Color azul claro con opacidad */
+    background: linear-gradient(135deg, rgba(47, 110, 148, 0.7), rgba(255, 255, 255, 0.5)); /* Gradiente */
+    border-radius: 10px; /* Esquinas redondeadas */
+    padding: 2px; /* Espaciado interno */
+    color: #333; /* Color del texto */
+    text-align: center; /* Centrar el texto */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para profundidad */
+	font-size: 15px; /* Tamaño de letra más pequeño */
+	line-height: 1.2; /* Espaciado entre líneas reducido */
+    margin: 10px 0; /* Margen superior e inferior */
+}
+
+.lil-gui {
+	z-index: 2 !important; /* TODO Solve this in HTML */
+}
+
+@media all and ( max-width: 640px ) {
+	.lil-gui.root { 
+		right: auto;
+		top: auto;
+		max-height: 50%;
+		max-width: 80%;
+		bottom: 0;
+		left: 0;
+	}
+}
+
+#overlay {
+	position: absolute;
+	font-size: 16px;
+	z-index: 2;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	background: rgba(0,0,0,0.7);
+}
+
+#overlay button {
+	background: transparent;
+	border: 0;
+	border: 1px solid rgb(255, 255, 255);
+	border-radius: 4px;
+	color: #ffffff;
+	padding: 12px 18px;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+#poster{
+	border: 5px solid green; /* Grosor y color del borde */
+	border-radius: 15px; /* Esquinas redondeadas */
+	padding: 20px; /* Espaciado interno */
+	height: 500px;
+	width: 300px;
+	overflow: hidden;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+	background: 
+	url(https://spaceplace.nasa.gov/review/all-about-earth/earth3.sp.png)
+	no-repeat
+	center;
+	background-size: cover;
+}
+
+#poster:hover{
+	box-shadow: 0px 0px 50px rgba(0, 0, 0, 1);
+	z-index: 2; 
+}
+
+#notSupported {
+	width: 50%;
+	margin: auto;
+	background-color: #f00;
+	margin-top: 20px;
+	padding: 10px;
+}
+canvas {
+    position: absolute; /* Posicionar el lienzo de manera absoluta */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ocupar todo el ancho */
+    height: 100%; /* Ocupar toda la altura */
+    z-index: -1; /* Asegúrate de que esté detrás de otros elementos */
+}
+
+body {
+		font-family: Monospace; 
+        margin: 0;
+        padding: 0;
+		background-color: #000;
+		color: #fff;
+		font-size: 13px;
+		line-height: 24px;
+		overscroll-behavior: none;
+		overflow: hidden;
+    }
+		
+        .navbar {
+            background-color: #333;
+            color: white;
+            text-align: left;
+			font-size: 15px;
+			line-height: 55px;
+			position: relative;
+			text-align: left; /* Alinear el texto a la izquierda */
+			padding: 15px;    /* Opcional: agregar un poco de espacio */
+			z-index: 1; /* Asegura que la barra de navegación esté por encima del canvas */
+			
+        }
+        .container {
+			position: relative; /* Para contener los elementos */
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+		
+        .side-menu {
+            width: 200px;
+            position: relative;
+			z-index: 1; /* Asegura que los menús estén por encima del canvas */
+
+        }
+        .side-menu button {
+            width: 100%;
+            padding: 10px;
+            background-color: #444;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .dropdown {
+            display: none;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            position: absolute;
+            z-index: 1;
+            width: 100%;
+        }
+        .dropdown a {
+            padding: 10px;
+            text-decoration: none;
+            display: block;
+            color: black;
+			    z-index: 2; /* Asegura que el menú esté encima */
+			
+        }
+        .dropdown a:hover {
+            background-color: #ddd;
+        }
+        .main-area {
+            flex-grow: 1;
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            height: 100px;
+        }
+		.circular-image {
+			width: 100px; /* Ajusta el tamaño según sea necesario */
+			height: 100px; /* Mantén la altura igual para un círculo perfecto */
+			border-radius: 50%; /* Hace la imagen circular */
+			box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Contorno difuminado */
+			object-fit: cover; /* Asegura que la imagen se recorte adecuadamente */
+		}
+		.contenedor {
+			position: fixed;
+			bottom:10px;
+			right:10px;
+			display: flex;
+			align-items:start;
+			justify-content:flex-end;
+			z-index:1;
+		}	
+		.contenedor button {
+			width: 40px;
+			height: 40px;
+			margin: 5px;
+			border-bottom: #444;
+			border-radius: 30%;
+			outline: none;
+			cursor:pointer;
+		}
+		.contenedor button:hover {
+            background-color: #2980b9;
+        }
+
+        .contenedor button:active {
+            background-color: #1c5980;
+        }
+		.velocidad {
+			position: fixed;
+			bottom:300px;
+			right:0px;
+			display: flex;
+			align-items:start;
+			justify-content:flex-end;
+			background: color 0;;
+			z-index:1;
+		}	
+		.velocidad button {
+			width: 190px;
+			height: 40px;
+			margin: 5px;
+			border-bottom: #444;
+			border-radius: 50%;
+			outline: none;
+			cursor:pointer;
+		}
+		.velocidad button:hover {
+            background-color: #2980b9;
+        }
+
+        .velocidad button:active {
+            background-color: #1c5980;
+        }
+		#timeactual {
+			position: fixed;
+			top: 230px;
+			right: 35px;
+			color: white;
+			font-size: 10px;
+			background-color: rgba(213, 17, 17, 0.963);
+			padding: 10px;
+			border-radius: 5px;
+		}
+		h1 {
+			font-size: 2.3em;
+		}

@@ -1,0 +1,12 @@
+[build]
+  publish = "dist" # O el directorio donde están tus archivos estáticos
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
