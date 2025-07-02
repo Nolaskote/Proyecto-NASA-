@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Odyssey</title>
+    <link type="text/css" rel="stylesheet" href="main2.css">
+    <script src="https://kit.fontawesome.com/7df530b92f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <button id="backwardBtn"><i class="fa-solid fa-backward"></i></button>
+        <button id="pauseBtn"><i class="fa-solid fa-pause"></i></button>
+        <button id="forwardBtn"><i class="fa-solid fa-forward"></i></button>
+    </div>
+    <div class="navbar">
+        <h1>LAIKA Cosmic Odyssey</h1>
+    </div>
+    <div id="timeactual">Tiempo actual: 
+        <h1 id="dateDisplay">00/00/0000</h1>
+        <h1 id="timeDisplay">00:00:00</h1>
+    </div>
+    <div class="container">
+        <div class="side-menu">
+            <button onclick="toggleDropdown('dropdown1')">Menú 1</button>
+            <div id="dropdown1" class="dropdown">
+                <a href="#">Opción 1</a>
+                <a href="#">Opción 2</a>
+                <a href="#">Opción 3</a>
+            </div>
+        </div>
+
+        <div class="main-area">
+            <img src="../textures/logo.jpeg" alt="logo" class="circular-image">>
+        </div>
+
+        <div class="side-menu">
+            <button onclick="toggleDropdown('dropdown2')">Menú 2</button>
+            <div id="dropdown2" class="dropdown">
+                <a href="#">Opción A</a>
+                <a href="#">Opción B</a>
+                <a href="#">Opción C</a>
+            </div>
+        </div>
+    </div>
+    <div class="velocidad">
+        <div class="side-menu">
+            <button onclick="toggleDropdown('dropdown3')">Tiempo de simulación</button>
+            <div id="dropdown3" class="dropdown">
+                <a id="hora">1 hora</a>
+                <a id="dia">1 día</a>
+                <a id="semana">1 semana</a>
+                <a id="mes">1 mes</a>
+                <a id="año">1 año</a>
+            </div>
+        </div>
+    </div>  
+    <div id="poster" class="navbar">
+        <h1>Tierra</h1>
+        <h1>/</h1>
+        <h3> 
+            CelestialEntity = HelioCentricOrbit<br>
+            argPerigee: &nbsp; 100.47 <br>
+            sidereal:&nbsp;  1<br>
+            meanAnomoly :&nbsp;  100.47 <br>
+            raan :&nbsp;  -11.26064 <br>
+            semiMajorAxis :&nbsp;  1.00000011,<br>
+            eccentricity :&nbsp;  0.01671022"<br>
+            inclination :&nbsp;  0.00005"</h3>
+    </div>
+
+    <div id="container"></div>
+
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.161/build/three.module.js",
+            "jsm/": "https://cdn.jsdelivr.net/npm/three@0.161/examples/jsm/"
+            }
+        }
+    </script>
+    <script>
+        function toggleDropdown(dropdownId) {
+            const dropdown = document.getElementById(dropdownId);
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Cerrar el menú si se hace clic fuera de él
+        window.onclick = function(event) {
+            if (!event.target.matches('.side-menu button')) {
+                const dropdowns = document.getElementsByClassName("dropdown");
+                for (let i = 0; i < dropdowns.length; i++) {
+                    dropdowns[i].style.display = 'none';
+                }
+            }
+        }
+
+    </script>
+    
+    <script type="module" src="orbit.js" ></script>
+    <script type="module" src = "animaciones_pag.js"></script>
+
+</body>
+</html>

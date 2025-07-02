@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Odyssey</title>
+    <link type="text/css" rel="stylesheet" href="main.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <h1>LAIKA Cosmic Odyssey</h1>
+        <div class="espacio"></div>
+    </div>
+    <div class="container">
+        <div class="side-menu">
+            <button onclick="toggleDropdown('dropdown1')">Menu 1</button>
+            <div id="dropdown1" class="dropdown">
+                <a href="../Index.html" onclick="window.location.href='../Index.html'; return false;">Go to main menu</a>
+                <a href="./Obten_data.html" onclick="window.location.href='./Obten_data.html'; return false;">Database</a>
+            </div>
+        </div>
+
+        <div class="main-area">
+            <!-- <img src="../textures/logo.jpeg" class="circular-image"> -->
+        </div>
+
+        <div class="side-menu">
+            <button onclick="toggleDropdown('dropdown2')"> Menu 2</button>
+            <div id="dropdown2" class="dropdown">
+                <a href="./Demo1.html" onclick="window.location.href='./Demo1.html'; return false;">Demo 1</a>
+                <a href="./Demo_propagador.html" onclick="window.location.href='./Demo_propagador.html'; return false;">Demo Propagator</a>
+                <a href="./x.html" onclick="window.location.href='./x.html'; return false;">Pozo Gravitacional</a>
+                <!-- <a href="#">Option C</a> -->
+            </div>
+        </div>
+    </div>
+    <div class = "info">
+        <div id="poster" class="navbar_poster">
+            <h2> <span id="nombre">Earth</span> <br></h2>
+            <h2>--------</h2>
+            <h3>
+                CelestialEntity = HelioCentricOrbit<br>
+                argPerigee: &nbsp; <span id="argPerigee">100.47</span> <br>
+                sidereal: &nbsp; <span id="sidereal">1</span><br>
+                meanAnomoly: &nbsp; <span id="meanAnomoly">100.47</span> <br>
+                raan: &nbsp; <span id="raan">-11.26064</span> <br>
+                semiMajorAxis: &nbsp; <span id="semiMajorAxis">1.00000011</span> <br>
+                eccentricity: &nbsp; <span id="eccentricity">0.01671022</span> <br>
+                inclination: &nbsp; <span id="inclination">0.00005</span> 
+            </h3>
+            
+        </div>
+        <div>
+            <button id="show" class="side-menu" onclick="togglePosterVisibility()">Show</button>
+        </div>
+        <div class="info">
+            <div id="scrollTableContainer" class="data_poster">
+                <table id="asteroidTable">
+                    <thead>
+                        <tr>
+                            <th>Asteroid ID</th>
+                            <th>Is Potentially Hazardous</th>
+                            <th>NASA JPL URL</th>
+                        </tr>
+                    </thead>
+                    <tbody id="asteroidDataBody">
+                        <!-- Aquí se llenará dinámicamente la tabla -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+
+        <div id="container"></div>
+    </div>
+    
+    
+    
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.161/build/three.module.js",
+            "jsm/": "https://cdn.jsdelivr.net/npm/three@0.161/examples/jsm/"
+            }
+        }
+    </script>
+    <script>
+        function toggleDropdown(dropdownId) {
+            const dropdown = document.getElementById(dropdownId);
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Cerrar el menú si se hace clic fuera de él
+        window.onclick = function(event) {
+            if (!event.target.matches('.side-menu button')) {
+                const dropdowns = document.getElementsByClassName("dropdown");
+                for (let i = 0; i < dropdowns.length; i++) {
+                    dropdowns[i].style.display = 'none';
+                }
+            }
+        }
+
+        function togglePosterVisibility() {
+            const posterElement = document.querySelector('#poster');
+            
+            // Alternar la clase 'hide' para activar la animación
+            if (posterElement.classList.contains('hide')) {
+                posterElement.classList.remove('hide'); // Mostrar el poster
+                console.log("bdjfj")
+            } else {
+                posterElement.classList.add('hide');    // Ocultar el poster con animación
+            }
+        }
+
+
+
+    </script>
+    
+    <script type="module" src="orbit_tierra.js" ></script>
+    <script type="module" src = "animaciones_pag.js"></script>
+
+</body>
+</html>
